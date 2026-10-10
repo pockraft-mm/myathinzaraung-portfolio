@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import type { CSSProperties } from 'react';
 import { portfolio } from './content';
 import { About, Contact, Header, Hero, SelectedWork, Skills } from './sections';
+import { OceanBackground } from './components/ui/ocean-background';
 
 function usePortfolioMotion() {
   useEffect(() => {
@@ -86,5 +87,5 @@ export default function App() {
     '--muted-foreground': portfolio.colors.muted,
     '--border': portfolio.colors.border,
   } as CSSProperties;
-  return <div className="site-shell" style={palette}><div className="cursor-follower" aria-hidden="true"><span /></div><Header /><main id="top"><Hero /><SelectedWork /><Skills /><About /><Contact /></main></div>;
+  return <div className="site-shell" style={palette}><OceanBackground /><div className="cursor-follower" aria-hidden="true"><span /></div><Header /><main id="top"><Hero /><SelectedWork /><Skills /><About /><Contact /></main></div>;
 }

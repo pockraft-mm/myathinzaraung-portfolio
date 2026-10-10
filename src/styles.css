@@ -426,6 +426,249 @@ body {
     color: #edf2fc;
   }
 }
+
+/* Invert navy and white across the main content; the footer keeps its current theme. */
+body { background: #fff; color: #0b1220; }
+.site-shell { background: #fff; color: #0b1220; }
+.site-shell > main { color: #0b1220; background: #fff; }
+.portfolio-hero,
+.work,
+.services,
+.about { background: #fff; color: #0b1220; }
+.site-header {
+  color: #0b1220;
+  background: rgba(255,255,255,.94);
+  border-bottom-color: rgba(11,18,32,.14);
+}
+.site-header .logo,
+.site-header .nav a,
+.site-header .nav-role { color: #0b1220; }
+.site-header .nav a:after { background: #0b1220; }
+.site-header .nav a[aria-current=location] { color: #19345b; }
+.portfolio-hero h1,
+.hero-role,
+.hero-intro,
+.site-shell > main .eyebrow,
+.section-heading h2,
+.about h2,
+.about-description,
+.facts dt,
+.facts dd,
+.education-item h3,
+.education-item p,
+.education-item span,
+.course-list > p,
+.service h3,
+.service p,
+.service-number { color: #0b1220; }
+.project.card {
+  color: #0b1220;
+  background: #fff;
+  border: 1px solid rgba(11,18,32,.3);
+  box-shadow: 0 8px 24px rgba(11,18,32,.08);
+}
+.project.card .project-copy h3,
+.project.card .project-kicker,
+.project.card .project-copy > p,
+.project.card .project-copy > p.technologies { color: #0b1220; }
+.project.card .text-link { color: #19345b; border-bottom-color: #19345b; }
+@media (hover: hover) and (pointer: fine) {
+  .project.card:hover {
+    color: #19345b;
+    background: #fff;
+    border-color: #19345b;
+    box-shadow: 0 12px 28px rgba(11,18,32,.12);
+    transform: translateY(-2px);
+  }
+  .project.card:hover .project-copy h3,
+  .project.card:hover .project-kicker,
+  .project.card:hover .project-copy > p,
+  .project.card:hover .project-copy > p.technologies,
+  .project.card:hover .text-link { color: #19345b; }
+  .project.card:hover .text-link { border-bottom-color: #19345b; }
+}
+.button-default {
+  color: #fff;
+  background: #0b1220;
+  border-color: #0b1220;
+}
+.button-default:hover {
+  color: #0b1220;
+  background: #fff;
+  border-color: #0b1220;
+}
+.button-outline { color: #0b1220; border-color: rgba(11,18,32,.35); }
+.button-outline:hover { color: #fff; background: #0b1220; }
+.mobile-nav__toggle {
+  color: #0b1220;
+  background: linear-gradient(145deg, #fff, #edf2f8);
+  border-color: rgba(11,18,32,.24);
+  box-shadow: 0 8px 25px rgba(11,18,32,.14), inset 0 1px #fff;
+}
+.mobile-nav.is-open .mobile-nav__toggle { color: #fff; background: #0b1220; }
+.mobile-nav__links a { color: #0b1220; }
+.mobile-nav__links a:hover,
+.mobile-nav__links a:focus-visible,
+.mobile-nav__links a[aria-current="location"] {
+  color: #fff;
+  background: #0b1220;
+  border-color: rgba(11,18,32,.3);
+}
+.mobile-nav__wheel path { fill: rgba(255,255,255,.97); stroke: rgba(11,18,32,.45); }
+.mobile-nav__wheel text { fill: #0b1220; }
+.mobile-nav__wheel a:hover path,
+.mobile-nav__wheel a:focus-visible path,
+.mobile-nav__wheel a[aria-current="location"] path { fill: #0b1220; stroke: #0b1220; }
+.mobile-nav__wheel a:hover text,
+.mobile-nav__wheel a:focus-visible text,
+.mobile-nav__wheel a[aria-current="location"] text { fill: #fff; }
+.cursor-follower { border-color: rgba(11,18,32,.68); }
+.cursor-follower span { background: #0b1220; }
+.cursor-follower.cursor-link { border-color: #0b1220; background: rgba(11,18,32,.12); }
+.cursor-follower.cursor-link span { background: #0b1220; }
+.site-shell > main :where(.service h3, .education-item h3, .section-heading h2, .about h2, .project-copy h3):hover {
+  color: #0b1220;
+  text-shadow: none;
+}
+
+/* Final text and repository-link colors, after the legacy hover rules. */
+#top > section:not(.portfolio-hero) p:not(.eyebrow),
+#top > section:not(.portfolio-hero) span,
+#top > section:not(.portfolio-hero) dt,
+#top > section:not(.portfolio-hero) dd,
+#top > section:not(.portfolio-hero) li { color: #19345b; }
+#top .project .text-link,
+#top .project:hover .text-link,
+#top .project .text-link:hover,
+#top .project:has(.text-link:hover) .text-link,
+#top .work .projects > .project.card .text-link,
+#top .work .projects > .project.card:hover .text-link,
+#top .work .projects > .project.card .text-link:hover,
+#top .work .projects > .project.card:has(.text-link:hover) .text-link {
+  color: #c43b12;
+  border-bottom-color: #c43b12;
+}
+.site-shell > main .portfolio-hero .hero-role,
+.site-shell > main .hero-intro > p,
+.site-shell > main .about-description,
+.site-shell > main .education-item p,
+.site-shell > main .education-item span,
+.site-shell > main .course-list > p:not(.eyebrow),
+.site-shell > main .service p,
+.site-shell > main .service-number,
+.site-shell > main .project-kicker,
+.site-shell > main .project-copy > p { color: #19345b; }
+.site-shell > main .project-copy > p.technologies { color: #19345b; }
+.site-shell > main .project .text-link,
+.site-shell > main .project:hover .text-link,
+.site-shell > main .project .text-link:hover,
+.site-shell > main .project:has(.text-link:hover) .text-link {
+  color: #c43b12;
+  border-bottom-color: #c43b12;
+}
+.work .projects > .project.card .text-link,
+.work .projects > .project.card:hover .text-link,
+.work .projects > .project.card .text-link:hover,
+.work .projects > .project.card:has(.text-link:hover) .text-link {
+  color: #c43b12;
+  border-bottom-color: #c43b12;
+}
+.education-list,
+.service-list { border-top-color: #c43b12; }
+.contact-phone { border-bottom-color: #c43b12; }
+
+@property --project-border-progress {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+.work .projects > .project.card {
+  position: relative;
+  isolation: isolate;
+}
+.work .projects > .project.card > .project-copy {
+  position: relative;
+  z-index: 1;
+}
+.work .projects > .project.card .text-link,
+.work .projects > .project.card:hover .text-link {
+  color: #ff4000;
+  border-bottom-color: #ff4000;
+  transition: color .25s ease, border-color .25s ease;
+}
+.work .projects > .project.card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  z-index: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: conic-gradient(from -90deg, #ff4000 0deg var(--project-border-progress), transparent var(--project-border-progress) 360deg);
+  pointer-events: none;
+  opacity: 0;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+.work .projects > .project.card:has(.text-link:hover)::before,
+.work .projects > .project.card:has(.text-link:focus-visible)::before {
+  opacity: 1;
+  animation: project-border-sweep 2.4s ease-in-out forwards;
+}
+@keyframes project-border-sweep {
+  to { --project-border-progress: 360deg; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .work .projects > .project.card:has(.text-link:hover)::before,
+  .work .projects > .project.card:has(.text-link:focus-visible)::before {
+    --project-border-progress: 360deg;
+    animation: none;
+  }
+}
+.hero-role { color: #19345b; }
+.about :hover {
+  color: inherit;
+  background-color: transparent;
+  border-color: inherit;
+  box-shadow: none;
+  text-shadow: none;
+  transform: none;
+  filter: none;
+}
+.about :where(*):hover { transition: none; }
+.profile-image:hover,
+.profile-wrap:hover .profile-image {
+  border-color: rgba(11,18,32,.3);
+  box-shadow: none;
+  filter: none;
+  transform: none;
+}
+.hero-role { color: #19345b; }
+.site-shell > main .hero-actions .button {
+  color: #c43b12;
+  background: #fff;
+  border: 1px solid #c43b12;
+  transition: background-color .4s ease, color .4s ease, border-color .4s ease;
+}
+.site-shell > main .hero-actions .button:hover {
+  color: #fff;
+  background: #ff4000;
+  border-color: #ff4000;
+}
+.services :hover {
+  color: inherit;
+  background-color: transparent;
+  border-color: inherit;
+  box-shadow: none;
+  text-shadow: none;
+  transform: none;
+  filter: none;
+  transition: none;
+}
+.education-list,
+.service-list { border-top-color: #c43b12; }
+.contact-phone { border-bottom-color: #c43b12; }
 .contact::before {
   background: #080a0e;
 }
@@ -703,3 +946,209 @@ main section[id],footer[id]{scroll-margin-top:80px}
     color: #fff;
   }
 }
+
+/* Main content navy and white inversion; footer styles remain unchanged. */
+body { background: #fff; color: #0b1220; }
+.site-shell { background: #fff; color: #0b1220; }
+.site-shell > main { color: #0b1220; background: #fff; }
+.site-shell > main > .portfolio-hero,
+.site-shell > main > .work,
+.site-shell > main > .services,
+.site-shell > main > .about { background: #fff; color: #0b1220; }
+.site-header {
+  color: #0b1220;
+  background: rgba(255,255,255,.94);
+  border-bottom-color: rgba(11,18,32,.14);
+}
+.site-header .logo,
+.site-header .nav a,
+.site-header .nav-role { color: #0b1220; }
+.site-header .nav a:after { background: #0b1220; }
+.portfolio-hero h1,
+.hero-role,
+.hero-intro,
+.section-heading h2,
+.about h2,
+.about-description,
+.facts dt,
+.facts dd,
+.education-item h3,
+.education-item p,
+.education-item span,
+.course-list > p,
+.service h3,
+.service p,
+.service-number { color: #0b1220; }
+.profile-image { background: #fff; border-color: rgba(11,18,32,.3); }
+.project.card {
+  color: #0b1220;
+  background: #fff;
+  border: 1px solid rgba(11,18,32,.3);
+  box-shadow: 0 8px 24px rgba(11,18,32,.08);
+}
+.project.card .project-copy h3,
+.project.card .project-kicker,
+.project.card .project-copy > p,
+.project.card .project-copy > p.technologies { color: #0b1220; }
+.project.card .text-link { color: #19345b; border-bottom-color: #19345b; }
+.work .projects > .project.card:hover {
+  color: #19345b;
+  background: #fff;
+  border-color: #19345b;
+  box-shadow: 0 12px 28px rgba(11,18,32,.12);
+  transform: translateY(-2px);
+}
+.work .projects > .project.card:hover .project-copy h3,
+.work .projects > .project.card:hover .project-kicker,
+.work .projects > .project.card:hover .project-copy > p,
+.work .projects > .project.card:hover .project-copy > p.technologies,
+.work .projects > .project.card:hover .text-link { color: #19345b; }
+.work .projects > .project.card:hover .text-link { border-bottom-color: #19345b; }
+.site-shell > main .button-default {
+  color: #fff;
+  background: #0b1220;
+  border-color: #0b1220;
+}
+.site-shell > main .button-default:hover {
+  color: #0b1220;
+  background: #fff;
+  border-color: #0b1220;
+}
+.site-shell > main .button-outline { color: #0b1220; border-color: rgba(11,18,32,.35); }
+.site-shell > main .button-outline:hover { color: #fff; background: #0b1220; }
+.mobile-nav__toggle {
+  color: #0b1220;
+  background: linear-gradient(145deg, #fff, #edf2f8);
+  border-color: rgba(11,18,32,.24);
+  box-shadow: 0 8px 25px rgba(11,18,32,.14), inset 0 1px #fff;
+}
+.mobile-nav.is-open .mobile-nav__toggle { color: #fff; background: #0b1220; }
+.mobile-nav__links a { color: #0b1220; }
+.mobile-nav__links a:hover,
+.mobile-nav__links a:focus-visible,
+.mobile-nav__links a[aria-current="location"] { color: #fff; background: #0b1220; }
+.mobile-nav__wheel path { fill: rgba(255,255,255,.97); stroke: rgba(11,18,32,.45); }
+.mobile-nav__wheel text { fill: #0b1220; }
+.mobile-nav__wheel a:hover path,
+.mobile-nav__wheel a:focus-visible path,
+.mobile-nav__wheel a[aria-current="location"] path { fill: #0b1220; stroke: #0b1220; }
+.mobile-nav__wheel a:hover text,
+.mobile-nav__wheel a:focus-visible text,
+.mobile-nav__wheel a[aria-current="location"] text { fill: #fff; }
+.cursor-follower { border-color: rgba(11,18,32,.68); }
+.cursor-follower span { background: #0b1220; }
+.cursor-follower.cursor-link { border-color: #0b1220; background: rgba(11,18,32,.12); }
+.cursor-follower.cursor-link span { background: #0b1220; }
+.site-shell > main :where(.service h3, .education-item h3, .section-heading h2, .about h2, .project-copy h3):hover {
+  color: #0b1220;
+  text-shadow: none;
+}
+
+/* Final text and repository-link colors, after the legacy hover rules. */
+#top p:not(.eyebrow),
+#top span,
+#top dt,
+#top dd,
+#top li { color: #19345b; }
+#top .project .text-link,
+#top .project:hover .text-link,
+#top .project .text-link:hover,
+#top .project:has(.text-link:hover) .text-link,
+#top .work .projects > .project.card .text-link,
+#top .work .projects > .project.card:hover .text-link,
+#top .work .projects > .project.card .text-link:hover,
+#top .work .projects > .project.card:has(.text-link:hover) .text-link {
+  color: #c43b12;
+  border-bottom-color: #c43b12;
+}
+
+/* Authoritative final colors for main copy and repository links. */
+#top > section:not(.portfolio-hero) p:not(.eyebrow),
+#top > section:not(.portfolio-hero) span,
+#top > section:not(.portfolio-hero) dt,
+#top > section:not(.portfolio-hero) dd,
+#top > section:not(.portfolio-hero) li { color: #19345b !important; }
+#top .work .projects > .project.card .text-link,
+#top .work .projects > .project.card:hover .text-link,
+#top .work .projects > .project.card .text-link:hover,
+#top .work .projects > .project.card:has(.text-link:hover) .text-link {
+  color: #ff4000 !important;
+  border-bottom-color: #ff4000 !important;
+}
+#top .work .projects > .project.card a.text-link:link,
+#top .work .projects > .project.card a.text-link:visited,
+#top .work .projects > .project.card a.text-link:hover,
+#top .work .projects > .project.card a.text-link:focus,
+#top .work .projects > .project.card a.text-link:active,
+#top .work .projects > .project.card:hover a.text-link:link,
+#top .work .projects > .project.card:hover a.text-link:visited,
+#top .work .projects > .project.card:hover a.text-link:hover,
+#top .work .projects > .project.card:hover a.text-link:focus,
+#top .work .projects > .project.card:hover a.text-link:active {
+  color: #ff4000 !important;
+  border-bottom-color: #ff4000 !important;
+}
+
+/* Role accent and the requested footer phone underline. */
+.site-header .nav-role { color: #ff4000; }
+.contact-phone { border-bottom-color: #ff4000; }
+
+/* Hero actions use a smooth expanding fill on hover. */
+.site-shell > main .hero-actions .button {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: #ff4000;
+  background: #fff;
+  border-color: #ff4000;
+  transition: color .25s ease, border-color .4s ease;
+}
+.site-shell > main .hero-actions .button::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: 150%;
+  aspect-ratio: 1;
+  left: 50%;
+  top: 50%;
+  border-radius: 50%;
+  background: #ff4000;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform .55s cubic-bezier(.22, .75, .25, 1);
+}
+.site-shell > main .hero-actions .button > * {
+  position: relative;
+  z-index: 1;
+}
+.site-shell > main .hero-actions .button:hover,
+.site-shell > main .hero-actions .button:focus-visible {
+  color: #fff;
+  background: #fff;
+  border-color: #ff4000;
+}
+.site-shell > main .hero-actions .button:hover::before,
+.site-shell > main .hero-actions .button:focus-visible::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-shell > main .hero-actions .button::before { transition: none; }
+}
+
+/* Keep footer copy white; the ocean interaction belongs to the full-page canvas. */
+.contact,
+.contact :where(*) {
+  color: #fff !important;
+}
+.contact-phone { border-bottom-color: #ff4000; }
+.site-shell { position: relative; isolation: isolate; }
+.contact { isolation: auto; }
+.contact::before { z-index: 0; }
+.ocean-background {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.site-shell > main > * > .container { position: relative; z-index: 2; }
