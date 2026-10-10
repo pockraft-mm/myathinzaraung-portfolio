@@ -1,9 +1,29 @@
-import { ArrowUpRight } from 'lucide-react';
+import { useState } from 'react';
+import { ArrowUpRight, Menu, X } from 'lucide-react';
 import { portfolio, type Project } from './content';
 import { NeuralNoise } from './components/ui/neural-noise-cursor';
 
 export function Header() {
-  return <header className="site-header"><div className="header-brand"><a className="logo" href="#top" aria-label={`${portfolio.name} home`}>{portfolio.name}</a><span className="nav-role">{portfolio.title}</span></div><nav className="nav" aria-label="Main navigation"><a href="#work">Work</a><a href="#skills">Skills</a><a href="#about">About</a><a href="#contact">Contact</a></nav></header>;
+  const [menuOpen, setMenuOpen] = useState(false);
+  const closeMenu = () => setMenuOpen(false);
+  const items = [
+    { label: 'Work', href: '#work', start: 180, end: 202.5 },
+    { label: 'Skills', href: '#skills', start: 202.5, end: 225 },
+    { label: 'About', href: '#about', start: 225, end: 247.5 },
+    { label: 'Contact', href: '#contact', start: 247.5, end: 270 },
+  ];
+  const point = (angle: number, radius: number) => {
+    const radians = angle * Math.PI / 180;
+    return { x: 160 + radius * Math.cos(radians), y: 160 + radius * Math.sin(radians) };
+  };
+  const sectorPath = (start: number, end: number) => {
+    const outerStart = point(start, 150);
+    const outerEnd = point(end, 150);
+    const innerEnd = point(end, 76);
+    const innerStart = point(start, 76);
+    return `M ${outerStart.x} ${outerStart.y} A 150 150 0 0 1 ${outerEnd.x} ${outerEnd.y} L ${innerEnd.x} ${innerEnd.y} A 76 76 0 0 0 ${innerStart.x} ${innerStart.y} Z`;
+  };
+  return <><header className="site-header"><div className="header-brand"><a className="logo" href="#top" aria-label={`${portfolio.name} home`}>{portfolio.name}</a><span className="nav-role">{portfolio.title}</span></div><nav className="nav" aria-label="Main navigation"><a href="#work">Work</a><a href="#skills">Skills</a><a href="#about">About</a><a href="#contact">Contact</a></nav></header><div className={`mobile-nav${menuOpen ? ' is-open' : ''}`}><nav className="mobile-nav__links" id="mobile-navigation" aria-label="Mobile navigation"><svg className="mobile-nav__wheel" viewBox="0 0 160 160" aria-hidden={!menuOpen}>{items.map((item) => { const start = item.start + 1.2; const end = item.end - 1.2; const labelPoint = point((start + end) / 2, 113); return <a key={item.href} href={item.href} aria-label={item.label} tabIndex={menuOpen ? 0 : -1} onClick={closeMenu}><path d={sectorPath(start, end)} /><text x={labelPoint.x} y={labelPoint.y}>{item.label}</text></a>; })}</svg></nav><button className="mobile-nav__toggle" type="button" aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={menuOpen} aria-controls="mobile-navigation" onClick={() => setMenuOpen((open) => !open)}>{menuOpen ? <X size={17} strokeWidth={2.5} /> : <Menu size={23} />}</button></div></>;
 }
 
 export function Hero() {

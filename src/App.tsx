@@ -6,12 +6,12 @@ import { About, Contact, Header, Hero, SelectedWork, Skills } from './sections';
 function usePortfolioMotion() {
   useEffect(() => {
     const sections = document.querySelectorAll<HTMLElement>('#work, #skills, #about, #contact');
-    const navLinks = document.querySelectorAll<HTMLAnchorElement>('.nav a[href^="#"]');
+    const navLinks = document.querySelectorAll<Element>('.nav a[href^="#"], .mobile-nav__links a[href^="#"]');
     if (!('IntersectionObserver' in window) || sections.length === 0) return undefined;
     const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
       navLinks.forEach((link) => {
-        if (link.hash === `#${entry.target.id}`) link.setAttribute('aria-current', 'location');
+        if (link.getAttribute('href') === `#${entry.target.id}`) link.setAttribute('aria-current', 'location');
         else link.removeAttribute('aria-current');
       });
     }), { rootMargin: '-18% 0px -70% 0px', threshold: 0 });
@@ -26,7 +26,7 @@ function usePortfolioMotion() {
       document.documentElement.classList.add('has-reveal');
       const observer = new IntersectionObserver((entries, currentObserver) => entries.forEach((entry) => {
         if (entry.isIntersecting) { entry.target.classList.add('is-visible'); currentObserver.unobserve(entry.target); }
-      }), { threshold: 0.14, rootMargin: '0px 0px -6% 0px' });
+      }), { threshold: 0.08, rootMargin: '0px 0px -10% 0px' });
       revealItems.forEach((item) => observer.observe(item));
       return () => { observer.disconnect(); document.documentElement.classList.remove('has-reveal'); };
     }
