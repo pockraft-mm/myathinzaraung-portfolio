@@ -27,7 +27,7 @@ export function Header() {
 }
 
 export function Hero() {
-  return <section className="portfolio-hero" data-reveal><div className="container hero-grid"><div className="hero-copy"><h1>{portfolio.name}</h1><p className="hero-role" style={{ color: '#19345b' }}>{portfolio.institution}</p></div><div className="hero-portrait"><div className="profile-wrap"><NeuralNoise className="neural-noise--portrait" opacity={0.2} pointerStrength={0.65} timeScale={0.55} /><img className="profile-image" src={portfolio.portrait} alt={`Portrait of ${portfolio.name}`} /></div></div><div className="hero-intro"><p>{portfolio.intro}</p><div className="hero-actions"><a className="button button-default" href="#work"><span>View My Work</span><ArrowUpRight size={14} /></a><a className="button button-outline" href="#contact"><span>Contact</span></a><a className="button button-outline" href={portfolio.cv} download="Mya-Thinzar-Aung-CV.pdf"><span>Download CV</span></a></div></div></div></section>;
+  return <section className="portfolio-hero" data-reveal><div className="container hero-grid"><div className="hero-copy"><h1>{portfolio.name}</h1><p className="hero-role" style={{ color: '#004B87' }}>{portfolio.institution}</p></div><div className="hero-portrait"><div className="profile-wrap"><NeuralNoise className="neural-noise--portrait" opacity={0.2} pointerStrength={0.65} timeScale={0.55} /><img className="profile-image" src={portfolio.portrait} alt={`Portrait of ${portfolio.name}`} /></div></div><div className="hero-intro"><p>{portfolio.intro}</p><div className="hero-actions"><a className="button button-default" href="#work"><span>View My Work</span><ArrowUpRight size={14} /></a><a className="button button-outline" href="#contact"><span>Contact</span></a><a className="button button-outline" href={portfolio.cv} download="Mya-Thinzar-Aung-CV.pdf"><span>Download CV</span></a></div></div></div></section>;
 }
 
 export function SelectedWork() {
@@ -35,11 +35,11 @@ export function SelectedWork() {
 }
 
 export function About() {
-  return <section className="about section-border" id="about" data-reveal><div className="container about-grid"><div><p className="eyebrow">About</p><h2>A little about me</h2></div><div><p className="about-description">{portfolio.about}</p><div className="education-list"><p className="eyebrow">Education</p>{portfolio.education.map((item) => <article className="education-item" key={item.degree}><h3>{item.degree}</h3><p>{item.institution}</p><span>{item.details}</span></article>)}</div><div className="course-list"><p className="eyebrow">Courses</p>{portfolio.courses.map((course) => <p key={course}>{course}</p>)}</div></div></div></section>;
+  return <section className="about section-border" id="about" data-reveal><div className="container about-grid"><div><p className="eyebrow">About</p><h2>A little about me</h2></div><div><p className="about-description">{portfolio.about}</p><div className="education-list"><p className="eyebrow">Education</p>{portfolio.education.map((item) => <article className="education-item" key={item.degree}><h3>{item.degree}</h3><p style={{ color: '#004B87' }}>{item.institution}</p><span>{item.details}</span></article>)}</div><div className="course-list"><p className="eyebrow">Courses</p>{portfolio.courses.map((course) => <p key={course} style={{ color: '#004B87' }}>{course}</p>)}</div></div></div></section>;
 }
 
 export function Skills() {
-  return <section className="services section-border" id="skills" data-reveal><div className="container"><div className="section-heading"><p className="eyebrow">Skills</p><h2>Areas of experience</h2></div><div className="service-list">{portfolio.skills.map((skill, index) => <div className="service" key={skill.label} data-reveal><span className="service-number">{String(index + 1).padStart(2, '0')}</span><h3>{skill.label}</h3><p>{skill.value}</p></div>)}</div></div></section>;
+  return <section className="services section-border" id="skills" data-reveal><div className="container"><div className="section-heading"><p className="eyebrow">Skills</p><h2>Areas of experience</h2></div><div className="service-list">{portfolio.skills.map((skill, index) => <div className="service" key={skill.label} data-reveal><span className="service-number">{String(index + 1).padStart(2, '0')}</span><h3 style={{ color: '#004B87' }}>{skill.label}</h3><p>{skill.value}</p></div>)}</div></div></section>;
 }
 
 export function Contact() {
