@@ -135,6 +135,8 @@ html.has-reveal [data-reveal].is-visible {
   }
   .mobile-nav__toggle:hover { transform: translateX(-2px) scale(1.04); border-color: rgba(153, 187, 242, .5); box-shadow: 0 10px 30px rgba(0, 0, 0, .4), 0 0 20px rgba(48, 94, 165, .2); }
   .mobile-nav__toggle:active { transform: scale(.94); }
+  .mobile-nav__toggle svg { transition: transform .5s cubic-bezier(.16,1,.3,1); }
+  .mobile-nav.is-open .mobile-nav__toggle svg { transform: rotate(90deg); }
   .mobile-nav.is-open .mobile-nav__toggle { background: linear-gradient(145deg, #1b3152, #10213b); border-color: rgba(153, 187, 242, .35); }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -184,20 +186,20 @@ html.has-reveal [data-reveal].is-visible {
   .mobile-nav__links::before { display: none; }
   .mobile-nav__wheel {
     position: absolute;
-    top: -133px;
-    left: -133px;
-    width: 160px;
-    height: 160px;
+    top: -193px;
+    left: -193px;
+    width: 220px;
+    height: 220px;
     overflow: visible;
     opacity: 0;
-    transform: scale(.94);
-    transform-origin: 160px 160px;
+    transform: scale(.72) rotate(-14deg);
+    transform-origin: 220px 220px;
     pointer-events: none;
-    transition: opacity .25s ease, transform .48s cubic-bezier(.16,1,.3,1);
+    transition: opacity .38s ease, transform .82s cubic-bezier(.16,1,.3,1);
   }
   .mobile-nav.is-open .mobile-nav__wheel {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1) rotate(0);
     pointer-events: auto;
   }
   .mobile-nav__wheel a {
@@ -211,24 +213,25 @@ html.has-reveal [data-reveal].is-visible {
     opacity: 0;
     transform: scale(.96);
     transform-box: view-box;
-    transform-origin: 160px 160px;
-    transition: opacity .3s ease, transform .48s cubic-bezier(.16,1,.3,1);
+    transform-origin: 220px 220px;
+    transition: opacity .34s ease, transform .6s cubic-bezier(.16,1,.3,1);
   }
   .mobile-nav.is-open .mobile-nav__wheel a { opacity: 1; transform: scale(1); }
-  .mobile-nav.is-open .mobile-nav__wheel a:nth-child(1) { transition-delay: .03s; }
-  .mobile-nav.is-open .mobile-nav__wheel a:nth-child(2) { transition-delay: .08s; }
-  .mobile-nav.is-open .mobile-nav__wheel a:nth-child(3) { transition-delay: .13s; }
-  .mobile-nav.is-open .mobile-nav__wheel a:nth-child(4) { transition-delay: .18s; }
+  .mobile-nav.is-open .mobile-nav__wheel a:nth-child(1) { transition-delay: .05s; }
+  .mobile-nav.is-open .mobile-nav__wheel a:nth-child(2) { transition-delay: .12s; }
+  .mobile-nav.is-open .mobile-nav__wheel a:nth-child(3) { transition-delay: .19s; }
+  .mobile-nav.is-open .mobile-nav__wheel a:nth-child(4) { transition-delay: .26s; }
   .mobile-nav__wheel path {
     fill: rgba(9, 20, 37, .94);
-    stroke: rgba(166, 194, 238, .22);
-    stroke-width: 1.4;
+    stroke: rgba(176, 199, 235, .48);
+    stroke-width: 2.4;
+    stroke-linejoin: round;
     transition: fill .25s ease, stroke .25s ease, filter .25s ease;
   }
   .mobile-nav__wheel text {
     fill: rgba(239, 245, 255, .86);
     font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-    font-size: 9px;
+    font-size: 10.5px;
     font-weight: 600;
     text-anchor: middle;
     dominant-baseline: central;
@@ -238,7 +241,8 @@ html.has-reveal [data-reveal].is-visible {
   .mobile-nav__wheel a:focus-visible path,
   .mobile-nav__wheel a[aria-current="location"] path {
     fill: #19345b;
-    stroke: rgba(167, 198, 248, .76);
+    stroke: rgba(190, 214, 255, .96);
+    stroke-width: 3;
     filter: drop-shadow(0 0 8px rgba(68, 119, 199, .42));
   }
   .mobile-nav__wheel a:hover text,
