@@ -90,8 +90,8 @@ function OceanBackground() {
       for (let y = 0; y < gridHeight; y += 1) {
         for (let x = 0; x < gridWidth; x += 1) {
           const index = y * gridWidth + x;
-          pointsX[index] = x - GRID_PADDING + 0.5 + Math.sin(phasesX[index] + time * 0.31) * 0.58;
-          pointsY[index] = y - GRID_PADDING + 0.5 + Math.sin(phasesY[index] + time * 0.27) * 0.58;
+          pointsX[index] = x - GRID_PADDING + 0.5 + Math.sin(phasesX[index] + time * 0.31) * 0.45;
+          pointsY[index] = y - GRID_PADDING + 0.5 + Math.sin(phasesY[index] + time * 0.27) * 0.45;
         }
       }
 
@@ -158,7 +158,7 @@ function OceanBackground() {
       if (document.hidden || reducedMotion.matches) return;
       if (now - lastDraw >= frameInterval) {
         // Keep the caustics calm, but move them fast enough to read as animated.
-        elapsed = now * 0.002;
+        elapsed = now * 0.0007;
         render(elapsed);
         lastDraw = now;
       }

@@ -1195,3 +1195,13 @@ body,
 #top #about .course-list > p:not(.eyebrow):hover {
   color: #004B87 !important;
 }
+
+@media (max-width: 720px) {
+  .site-shell > main .portfolio-hero .hero-portrait {
+    justify-content: center;
+  }
+
+  .site-shell > main .portfolio-hero .profile-wrap {
+    margin-inline: auto;
+  }
+}
