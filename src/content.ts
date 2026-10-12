@@ -10,7 +10,7 @@ export type SkillGroup = { label: string; value: string };
 
 export const portfolio = {
   name: 'Mya Thinzar Aung',
-  title: 'Engineering Student',
+  title: 'Computer Science & Engineering Student',
   institution: 'Myanmar Institute of Information and Technology',
   portrait: '/mya-thinzar-aung.png',
   cv: '/mya-thinzar-aung-cv.pdf',
