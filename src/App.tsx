@@ -7,7 +7,7 @@ import { OceanBackground } from './components/ui/ocean-background';
 function usePortfolioMotion() {
   useEffect(() => {
     const sections = document.querySelectorAll<HTMLElement>('#work, #skills, #about, #contact');
-    const navLinks = document.querySelectorAll<Element>('.nav a[href^="#"], .mobile-nav__links a[href^="#"]');
+    const navLinks = document.querySelectorAll<Element>('.nav a[href^="#"], .mobile-nav-dock a[href^="#"]');
     if (!('IntersectionObserver' in window) || sections.length === 0) return undefined;
     const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
       if (!entry.isIntersecting) return;

@@ -260,6 +260,59 @@ html.has-reveal [data-reveal].is-visible {
   }
 }
 
+/* Template mobile navigation dock */
+.mobile-nav-dock { display: none; }
+@media (max-width: 720px) {
+  .site-header .nav { display: none; }
+  .mobile-nav-dock {
+    position: fixed;
+    z-index: 60;
+    top: 50%;
+    right: max(12px, env(safe-area-inset-right));
+    display: block;
+    transform: translateY(-50%);
+  }
+  .mobile-nav-links {
+    position: relative;
+    display: flex;
+    width: 56px;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    padding: 6px;
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 30px;
+    background: rgba(12,13,17,.94);
+    box-shadow: 0 8px 28px rgba(0,0,0,.32);
+    -webkit-backdrop-filter: saturate(160%) blur(16px);
+    backdrop-filter: saturate(160%) blur(16px);
+    transition: width .24s ease, border-radius .24s ease;
+  }
+  .mobile-nav-dock.is-open .mobile-nav-links { width: min(178px, calc(100vw - 72px)); border-radius: 22px; }
+  .mobile-nav-item {
+    display: flex;
+    width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+    gap: 10px;
+    padding: 0 11px;
+    border-radius: 12px;
+    color: #f4f4f5;
+    font-size: 13px;
+    font-weight: 500;
+    overflow: hidden;
+    transition: width .24s ease, background .2s ease;
+  }
+  .mobile-nav-item svg { width: 20px; height: 20px; flex: 0 0 20px; stroke-width: 1.8; }
+  .mobile-nav-item span { max-width: 0; overflow: hidden; opacity: 0; white-space: nowrap; transition: max-width .24s ease, opacity .18s ease; }
+  .mobile-nav-dock.is-open .mobile-nav-item { width: 100%; background: transparent; }
+  .mobile-nav-dock.is-open .mobile-nav-item span { max-width: 120px; opacity: 1; }
+  .mobile-nav-item:hover, .mobile-nav-item:focus-visible, .mobile-nav-item[aria-current="location"] { background: rgba(255,255,255,.12); color: #fff; }
+}
+@media (prefers-reduced-motion: reduce) { .mobile-nav-links, .mobile-nav-item, .mobile-nav-item span { transition: none; } }
+
 /* Dark navy and white portfolio palette */
 body {
   background: #0b1220;

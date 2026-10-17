@@ -1,29 +1,19 @@
 import { useState } from 'react';
-import { ArrowUpRight, Menu, X } from 'lucide-react';
+import { ArrowUpRight, BriefcaseBusiness, LayoutGrid, Mail, UserRound } from 'lucide-react';
 import { portfolio, type Project } from './content';
 import { NeuralNoise } from './components/ui/neural-noise-cursor';
 
 export function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const closeMenu = () => setMenuOpen(false);
+  const [dockOpen, setDockOpen] = useState(false);
+  const [expandForTouch, setExpandForTouch] = useState(false);
+  const [pointerActivation, setPointerActivation] = useState(false);
   const items = [
-    { label: 'Work', href: '#work', start: 180, end: 202.5 },
-    { label: 'Skills', href: '#skills', start: 202.5, end: 225 },
-    { label: 'About', href: '#about', start: 225, end: 247.5 },
-    { label: 'Contact', href: '#contact', start: 247.5, end: 270 },
+    { label: 'Work', href: '#work', Icon: BriefcaseBusiness },
+    { label: 'Skills', href: '#skills', Icon: LayoutGrid },
+    { label: 'About', href: '#about', Icon: UserRound },
+    { label: 'Contact', href: '#contact', Icon: Mail },
   ];
-  const point = (angle: number, radius: number) => {
-    const radians = angle * Math.PI / 180;
-    return { x: 220 + radius * Math.cos(radians), y: 220 + radius * Math.sin(radians) };
-  };
-  const sectorPath = (start: number, end: number) => {
-    const outerStart = point(start, 202);
-    const outerEnd = point(end, 202);
-    const innerEnd = point(end, 88);
-    const innerStart = point(start, 88);
-    return `M ${outerStart.x} ${outerStart.y} A 202 202 0 0 1 ${outerEnd.x} ${outerEnd.y} L ${innerEnd.x} ${innerEnd.y} A 88 88 0 0 0 ${innerStart.x} ${innerStart.y} Z`;
-  };
-  return <><header className="site-header"><div className="header-brand"><a className="logo" href="#top" aria-label={`${portfolio.name} home`}>{portfolio.name}</a><span className="nav-role">{portfolio.title}</span></div><nav className="nav" aria-label="Main navigation"><a href="#work">Work</a><a href="#skills">Skills</a><a href="#about">About</a><a href="#contact">Contact</a></nav></header><div className={`mobile-nav${menuOpen ? ' is-open' : ''}`}><nav className="mobile-nav__links" id="mobile-navigation" aria-label="Mobile navigation"><svg className="mobile-nav__wheel" viewBox="0 0 220 220" aria-hidden={!menuOpen}>{items.map((item) => { const start = item.start; const end = item.end; const labelPoint = point((start + end) / 2, 144); return <a key={item.href} href={item.href} aria-label={item.label} tabIndex={menuOpen ? 0 : -1} onClick={closeMenu}><path d={sectorPath(start, end)} /><text x={labelPoint.x} y={labelPoint.y}>{item.label}</text></a>; })}</svg></nav><button className="mobile-nav__toggle" type="button" aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={menuOpen} aria-controls="mobile-navigation" onClick={() => setMenuOpen((open) => !open)}>{menuOpen ? <X size={17} strokeWidth={2.5} /> : <Menu size={23} />}</button></div></>;
+  return <><header className="site-header"><div className="header-brand"><a className="logo" href="#top" aria-label={`${portfolio.name} home`}>{portfolio.name}</a><span className="nav-role">{portfolio.title}</span></div><nav className="nav" aria-label="Main navigation">{items.map(({ label, href }) => <a key={href} href={href}>{label}</a>)}</nav></header><nav className={`mobile-nav-dock${dockOpen ? ' is-open' : ''}`} aria-label="Mobile navigation" onPointerDown={(event) => { setPointerActivation(true); const touchShouldExpand = event.pointerType === 'touch' && !dockOpen; setExpandForTouch(touchShouldExpand); if (touchShouldExpand) setDockOpen(true); }} onPointerUp={() => window.setTimeout(() => setPointerActivation(false), 0)} onPointerCancel={() => { setPointerActivation(false); setExpandForTouch(false); }} onPointerEnter={(event) => { if (event.pointerType !== 'touch') setDockOpen(true); }} onPointerLeave={(event) => { if (event.pointerType !== 'touch' && !event.currentTarget.contains(document.activeElement)) setDockOpen(false); }} onFocus={() => { if (!pointerActivation) setDockOpen(true); }} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setDockOpen(false); }} onClick={(event) => { if (expandForTouch) { event.preventDefault(); setExpandForTouch(false); } else { setDockOpen(false); } }}><div className="mobile-nav-links">{items.map(({ label, href, Icon }) => <a className="mobile-nav-item" key={href} href={href} aria-label={label}><Icon aria-hidden="true" /><span>{label}</span></a>)}</div></nav></>;
 }
 
 export function Hero() {
